@@ -1,7 +1,7 @@
 import { Link, Head } from '@inertiajs/react';
 import vitaforLogo from '../../../public/image/vitafor-Photoroom.png'
 
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
+export default function Welcome({ auth }) {
     const handleImageError = () => {
         document.getElementById('screenshot-container')?.classList.add('!hidden');
         document.getElementById('docs-card')?.classList.add('!row-span-1');
@@ -25,10 +25,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <nav className="flex flex-1 lg:justify-center lg:col-start-2">
                                 {auth.user ? (
                                     <Link
-                                        href={route('dashboard')}
+                                        href={route('home')}
                                         className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                     >
-                                        Dashboard
+                                        Home
                                     </Link>
                                 ) : (
                                     <>
