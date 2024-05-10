@@ -1,9 +1,8 @@
 import React from 'react';
-import ModalCharacter from '@/Components/ModalCharacters';
 
-const Card = ({ name, image }) => {
+const Card = ({ name, image, onClick }) => {
   return (
-    <div className="card">
+    <div className="col cursor-pointer" onClick={onClick}>
         <img src={image} className="card-img-top" alt={name} />
         <div className="card-body">
             <h5 className="card-title">{name}</h5>

@@ -26,25 +26,29 @@ const CardGrid = () => {
     }
 
     return (
-        <div>
-            <div className="card-group">
+        <>
+        <div className='container text-center'>
+            <div className='row row-cols-5'>
                 {characters.map(character => (
-                    <div key={character.id} onClick={() => handleCardClick(character)}>
-                        <Card name={character.name} image={character.image} />
-                    </div>
+                    <Card
+                    name={character.name}
+                    image={character.image}
+                    key={character.id}
+                    onClick={() => handleCardClick(character)}/>
                 ))}
             </div>
+
+        </div>
             {showModal && <ModalCharacters
-                name={characters.name}
-                species={characters.species}
-                image={characters.image}
-                url={characters.url}
-                created_at={characters.created_at}
-                updated_at={characters.updated_at}
-                character={selectedCharacter}
+                name={selectedCharacter.name}
+                species={selectedCharacter.species}
+                image={selectedCharacter.image}
+                url={selectedCharacter.url}
+                created_at={selectedCharacter.created_at}
+                updated_at={selectedCharacter.updated_at}
                 onClose={() => setShowModal(false)}
             />}
-        </div>
+        </>
     );
 };
 

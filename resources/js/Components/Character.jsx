@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Chirp({ chirp }) {
+export default function Character({ chirp }) {
     return (
         <div className="p-6 flex space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 -scale-x-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -9,11 +9,11 @@ export default function Chirp({ chirp }) {
             <div className="flex-1">
                 <div className="flex justify-between items-center">
                     <div>
-                        <span className="text-gray-800">{chirp.user.name}</span>
-                        <small className="ml-2 text-sm text-gray-600">{new Date(chirp.created_at).toLocaleString()}</small>
+                        <span className="text-gray-800">{character.user.name}</span>
+                        <small className="ml-2 text-sm text-gray-600">{new Date(character.created_at).toLocaleString()}</small>
                     </div>
                 </div>
-                <p className="mt-4 text-lg text-gray-900">{chirp.message}</p>
+                <p className="mt-4 text-lg text-gray-900">{character.message}</p>
             </div>
         </div>
     );

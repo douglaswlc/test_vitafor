@@ -4,8 +4,9 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
+import SearchBar from '@/Components/SearchBar';
 
-export default function Authenticated({ user, header, children }) {
+export default function Authenticated({ user, header, children, onSearch }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
@@ -112,6 +113,7 @@ export default function Authenticated({ user, header, children }) {
                     </div>
                 </div>
             </nav>
+
 
             {header && (
                 <header className="bg-white shadow">
