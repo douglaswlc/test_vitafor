@@ -28,7 +28,7 @@ const CardGrid = () => {
     return (
         <>
         <div className='container text-center'>
-            <div className='row row-cols-5'>
+            <div className='row row-cols-4'>
                 {characters.map(character => (
                     <Card
                     name={character.name}
