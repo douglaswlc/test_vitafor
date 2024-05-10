@@ -1,4 +1,4 @@
-const characterAPI= () => {
+const characterAPI = () => {
     const result = fetch('https://rickandmortyapi.com/api/character')
     .then((res) => res.json())
     .then((data) => {

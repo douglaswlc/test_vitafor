@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import characterAPI from '../../../service/charactersAPI';
+import ModalCharacters from '../../Components/ModalCharacters';
 
 const CardGrid = () => {
     const [characters, setCharacters] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedCharacter, setSelectedCharacter] = useState(null);
 
     useEffect(() => {
         const fetchCharacters = async () => {
@@ -14,32 +17,35 @@ const CardGrid = () => {
                 console.error('Erro ao carregar os personagens', error);
             }
         }
-
         fetchCharacters();
-    })
+    }, []);
+
+    const handleCardClick = (character) => {
+        setSelectedCharacter(character);
+        setShowModal(true);
+    }
 
     return (
-        <div className="card-group">
-            <div className="card"></div>
-        {characters.map(card => (
-            <div key={card.id}>
-                <img src={card.image} className="card-img-top" alt={card.name} />
-                <div className="card-body">
-                <h5 className="card-title">{card.name}</h5>
-                <h5 className="card-title">{card.species}</h5>
-                </div>
+        <div>
+            <div className="card-group">
+                {characters.map(character => (
+                    <div key={character.id} onClick={() => handleCardClick(character)}>
+                        <Card name={character.name} image={character.image} />
+                    </div>
+                ))}
             </div>
-            ))}
-            </div>
+            {showModal && <ModalCharacters
+                name={characters.name}
+                species={characters.species}
+                image={characters.image}
+                url={characters.url}
+                created_at={characters.created_at}
+                updated_at={characters.updated_at}
+                character={selectedCharacter}
+                onClose={() => setShowModal(false)}
+            />}
+        </div>
     );
-
-
-
-
-
-
-
-
 };
 
 export default CardGrid;

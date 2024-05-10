@@ -18,7 +18,7 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('home')} active={route().current('home')}>
                                     Home
                                 </NavLink>
-                                <NavLink>
+                                <NavLink href={route('characters.index')} active={route().current('characters.index')}>
                                     Saved Characters
                                 </NavLink>
                             </div>
@@ -91,6 +91,9 @@ export default function Authenticated({ user, header, children }) {
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('home')} active={route().current('home')}>
                             Home
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('characters.index')} active={route().current('characters.index')}>
+                            Saved Characters
                         </ResponsiveNavLink>
                     </div>
 
